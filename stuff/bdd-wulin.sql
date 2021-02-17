@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Hôte : 127.0.0.1:3306
--- Généré le : mar. 16 fév. 2021 à 16:01
+-- Généré le : mer. 17 fév. 2021 à 15:37
 -- Version du serveur :  5.7.31
 -- Version de PHP : 7.3.21
 
@@ -30,24 +30,31 @@ SET time_zone = "+00:00";
 DROP TABLE IF EXISTS `characteridentity`;
 CREATE TABLE IF NOT EXISTS `characteridentity` (
   `idIdentity` int(11) NOT NULL AUTO_INCREMENT,
-  `identityName` varchar(50) DEFAULT NULL,
+  `identityName` varchar(200) CHARACTER SET utf8 COLLATE utf8_unicode_ci DEFAULT NULL,
   `identityLevel` int(11) NOT NULL,
   `idCharacter` int(11) NOT NULL,
   PRIMARY KEY (`idIdentity`),
   KEY `idCharacter` (`idCharacter`)
-) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=14 DEFAULT CHARSET=latin1;
 
 --
 -- Déchargement des données de la table `characteridentity`
 --
 
 INSERT INTO `characteridentity` (`idIdentity`, `identityName`, `identityLevel`, `idCharacter`) VALUES
-(1, 'Dragon Erudit', 2, 3),
-(2, 'Chef de la Garde', 2, 3),
-(3, 'Rhétoricien Emerite', 2, 3),
-(4, 'Moine Combattant', 2, 1),
-(5, 'Artisan des Vertes Forêts', 2, 2),
-(6, 'Maître du Huaben', 2, 2);
+(1, 'Maitre Alchimiste', 2, 6),
+(2, 'Courtisane', 2, 6),
+(3, 'Dieu Réincarné', 2, 5),
+(4, 'Fang Shi Itinérant', 2, 5),
+(5, 'Maitre Assassin', 2, 4),
+(6, 'Artiste', 1, 7),
+(7, 'Monte-En-l\'Air', 1, 7),
+(8, 'Grand Magistrat de Wuxi', 2, 8),
+(9, 'Premier au Concours Mandarinal', 2, 8),
+(10, 'Génie Littéraire', 1, 8),
+(11, 'Chasseur de Mogwaï', 1, 8),
+(12, 'Acteur', 2, 9),
+(13, 'Dragon Déchu', 2, 9);
 
 -- --------------------------------------------------------
 
@@ -126,12 +133,12 @@ INSERT INTO `personnalities` (`idCharacter`, `characterName`, `isFemale`, `known
 (1, 'Xiao Long', 0, 'Lorem Ipsum', 1, 2),
 (2, 'La Montagne Qui Chante', 0, 'Lorem Ipsum', 1, 1),
 (3, 'Lan Shu', 0, 'Lorem Ipsum', 1, 3),
-(4, 'Corbeau Spectral', 0, 'Lorem Ipsum', 1, 1),
+(4, 'Corbeau Spectral', 0, 'Lorem Ipsum', 1, 5),
 (5, 'Sun Wukong', 0, 'Lorem Ipsum', 1, 1),
 (6, 'Caresse de Jade', 1, 'Lorem Ipsum', 1, 1),
-(7, 'Rossignol Au Bandeau', 0, 'Lorem Ipsum', 1, 1),
+(7, 'Rossignol Au Bandeau', 0, 'Lorem Ipsum', 1, 4),
 (8, 'Regard Eclairé', 0, 'Lorem Ipsum', 1, 1),
-(9, 'Multiples Echos', 0, 'Lorem Ipsum', 1, 1),
+(9, 'Multiple Echo', 0, 'Lorem Ipsum', 1, 1),
 (10, 'Plume Brisée', 0, 'Lorem Ipsum', 1, 1),
 (11, 'La Shaman aux Tatouages', 1, 'Lorem Ipsum', 1, 1);
 
@@ -149,7 +156,7 @@ CREATE TABLE IF NOT EXISTS `school` (
   `isTiger` tinyint(1) DEFAULT NULL,
   `schoolMaster` varchar(50) DEFAULT NULL,
   PRIMARY KEY (`idSchool`)
-) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=latin1;
 
 --
 -- Déchargement des données de la table `school`
@@ -158,7 +165,9 @@ CREATE TABLE IF NOT EXISTS `school` (
 INSERT INTO `school` (`idSchool`, `schoolName`, `isDragon`, `isTiger`, `schoolMaster`) VALUES
 (1, 'Sans Ecole', 0, 0, NULL),
 (2, 'Les Huit Paumes du Dragon du Sud', 1, 0, 'Coeur Assagi'),
-(3, 'LEpée des Immortelles de Luo-shan', 1, 0, NULL);
+(3, 'LEpée des Immortelles de Luo-shan', 1, 0, NULL),
+(4, 'Système du Grand Un', 1, 0, NULL),
+(5, 'La Main de la Seconde Roue', 1, 0, NULL);
 
 -- --------------------------------------------------------
 
@@ -217,7 +226,7 @@ CREATE TABLE IF NOT EXISTS `treasure` (
   `idCharacter` int(11) NOT NULL,
   PRIMARY KEY (`idTreasure`),
   KEY `idCharacter` (`idCharacter`)
-) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=12 DEFAULT CHARSET=latin1;
 
 --
 -- Déchargement des données de la table `treasure`
@@ -228,7 +237,13 @@ INSERT INTO `treasure` (`idTreasure`, `treasureName`, `treasureLevel`, `idCharac
 (2, 'Le Baton du Roi des Singes', 1, 5),
 (3, 'La Colère du Dragon', 2, 1),
 (4, 'Sibu Xiang', 2, 2),
-(5, 'Loyauté Indéflectible', 2, 3);
+(5, 'Loyauté Indéflectible', 2, 3),
+(6, 'Erhu de Jade', 4, 7),
+(7, 'Lunette du Magistrat', 2, 8),
+(8, 'Les Masques Arc-En-Ciel', 2, 9),
+(9, 'La Serre Noire', 2, 4),
+(10, 'Baton du Roi Singe', 2, 5),
+(11, 'Les Cent-Une Philosophies', 1, 6);
 
 --
 -- Contraintes pour les tables déchargées
