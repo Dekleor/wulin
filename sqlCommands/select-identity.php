@@ -7,22 +7,60 @@ spl_autoload_register(function ($class) {
     require_once "../classes/$class.php";
 });
 
-for ($i = 1; $i <= characteridentity.length;$i++) {
+$sql = "SELECT *
+        FROM personnalities
+        WHERE isPc = True
+        ORDER BY characterName ASC";
+$statement = $connection->prepare($sql);
+$statement->execute();
+
+$statement->setFetchMode(PDO::FETCH_ASSOC);
+$characterResults = $statement->fetchAll();
+
+foreach ($characterResults as $result) {
+    $perso = new Personnalities();
+    $perso->setCharacterName($result['characterName']);
+    $perso->setIsFemale($result['isFemale']);
+    $perso->setKnownStory($result['knownStory']);
+    $id = $result['idCharacter'];
+
+
     $sql = "SELECT *
-            FROM characteridentity
-            WHERE idCharacter = $i
-            ORDER BY identityName ASC";
+        FROM characteridentity
+        WHERE idCharacter = $id
+        ORDER BY identityName ASC";
     $statement = $connection->prepare($sql);
     $statement->execute();
 
     $statement->setFetchMode(PDO::FETCH_ASSOC);
-    $identityresults = $statement->fetchAll();
+    $identityResults = $statement->fetchAll();
 
-    foreach ($identiresults as $result) {
+    foreach ($identityResults as $result) {
         $identity = new CharacterIdentity();
         $identity->setIdentityName($result['identityName']);
         $identity->setIdentityLevel($result['identityLevel']);
-
-        var_dump($perso);
     }
 }
+
+echo '
+<ul>
+<li>Nom : '.$perso->getCharacterName().' </li>
+<li>Identités : '.$identity->getIdentityName().'';
+
+ switch ($identity->getIdentityLevel()) {
+     case 1:
+         echo ' (Rumeur)';
+         break;
+     case 2:
+         echo ' (Gloire)';
+         break;
+     case 4:
+         echo ' (Légende)';
+         break;
+ }
+echo ' 
+    </li>
+<li>Ses traits : </li>
+<li>Son trésor : </li>
+<li>Son histoire : '.$perso->getKnownStory().' </li>
+</ul>';
