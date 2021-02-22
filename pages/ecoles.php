@@ -2,6 +2,7 @@
     <div class="container">
         <div class="row center-xs">
             <div class="col-md">
+                <img id="imgEcole" src="img/test/ecole.png" alt="idéogramme école">
                 <h2 class="section-title">Écoles</h2>
                 <p>Oubliées ou alors simplement cachées</p>
             </div>

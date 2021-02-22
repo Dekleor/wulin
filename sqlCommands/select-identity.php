@@ -1,6 +1,5 @@
 <?php
 
-
 require_once '../includes/connect.php';
 
 spl_autoload_register(function ($class) {
@@ -64,36 +63,3 @@ echo '
 <li>Son trésor : </li>
 <li>Son histoire : '.$perso->getKnownStory().' </li>
 </ul>';
-
-?>
-
-
-
-<section class="perso" id="perso">
-    <div class="container">
-        <div class="row center-xs">
-            <div class="col-md">
-                <img id="imgPerso" src="img/test/perso.png" alt="idéogramme personnage">
-                <h2 class="section-title">Personnages</h2>
-                <p>Ils écrivent les histoires futures</p>
-            </div>
-        </div>
-    </div>
-
-    <div class="padding-small">
-        <div class="row margin-bottom-small">
-            <div class="col-md-4">
-                <div class="hover-outer-box">
-                    <img src="img/construction.png">
-                    <div class="hover-inner-box">
-                        <div class="hover-content">
-                            <h3>Caresse de Jade</h3>
-                            <p>Femme fatale et alchimiste externe de renom</p>
-                            <a href=""><button class="light">En savoir plus</button></a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-</section>

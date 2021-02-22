@@ -58,7 +58,7 @@ img {
 }
 
 section {
-	margin: 10rem auto;
+	margin: 50px 100px 100px;
 }
 
 button {
@@ -115,7 +115,6 @@ hr {
 	margin-bottom: 70px;
 	text-transform: uppercase;
 }
-
 
 .flex {display: flex;}
 
@@ -298,7 +297,27 @@ footer li a{
 	color: #000;
 }
 
+/* images */
 
+#imgPerso {
+	width: 150px; !important
+	height: 150px; !important
+}
+
+#imgHisto {
+	width: 150px; !important
+	height: 150px; !important
+}
+
+#imgEcole {
+	width: 150px; !important
+	height: 150px; !important
+}
+
+#imgPnj {
+	width: 150px; !important
+	height: 150px; !important
+}
 
 /* Mediaqueries */
 

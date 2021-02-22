@@ -2,6 +2,7 @@
     <div class="container">
         <div class="row center-xs">
             <div class="col-md">
+                <img id="imgPnj" src="img/test/pnj.png" alt="idéogramme pnj">
                 <h2 class="section-title">Personnalités</h2>
                 <p>Portraits de personnalités du Jiang Hu et d'ailleurs</p>
             </div>
