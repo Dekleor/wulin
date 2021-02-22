@@ -1,6 +1,5 @@
 <?php
 
-
 require_once '../includes/connect.php';
 
 spl_autoload_register(function ($class) {
@@ -44,8 +43,8 @@ foreach ($characterResults as $result) {
 
 echo '
 <ul>
-<li>Nom : '.$perso->getCharacterName().' </li>
-<li>Identités : '.$identity->getIdentityName().'';
+<li>Son nom : '.$perso->getCharacterName().' </li>
+<li>Ses identités : '.$identity->getIdentityName().'';
 
  switch ($identity->getIdentityLevel()) {
      case 1:

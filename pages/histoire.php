@@ -2,6 +2,7 @@
     <div class="container">
         <div class="row center-xs">
             <div class="col-md">
+                <img id="imgHisto" src="img/test/histo.png" alt="idéogramme histoires">
                 <h2 class="section-title">Histoires</h2>
                 <p>Celles qui se raconteront pendant les siècles à venir</p>
             </div>
